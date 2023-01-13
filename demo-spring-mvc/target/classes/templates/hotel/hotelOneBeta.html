@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HL1</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <div class="container" th:object="(${Hotel})">
+
+        <h1>Détails de l'Hotel</h1>
+
+        <table class="table">
+
+
+        <p> ID de l'hotel : <span th:text="*{ID}"></span></p>
+        <p> Nom de l'hotel : <span th:text="*{nom}"></span></p>
+        <p> Nombre d'étoiles : <span th:text="*{nbrEtoiles}" th:class="*{nbrEtoiles}>2 ? 'doree'"></span></p>
+        <p> Adresse : <span th:text="*{adresse}"></span> </p>
+        <p> Nom du receptioniste : <span th:text="*{nomReceptionist}"></span> </p>
+        <p> Détails des chambres : <span th:text="${#lists.size(hotel.rooms)}"></span> </p>
+
+        </table>
+    </div>
+
+</body>
+</html>

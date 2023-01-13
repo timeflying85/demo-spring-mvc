@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Liste des chambres</h1>
+
+    <ul>
+        <li th:each="room : ${rooms}" th:object="${room}">
+            <p th:text="|Chambre numéro: *{numRoom},
+            lits simple: *{nbrSimpleBed},
+            lits double: *{nbrDoubleBed}|">
+                données de la Room
+            </p>
+            <a th:href="@{/room/{num}(num=*{numRoom})}">
+                <button>Détails</button>
+            </a>
+
+        </li>
+    </ul>
+
+</body>
+</html>

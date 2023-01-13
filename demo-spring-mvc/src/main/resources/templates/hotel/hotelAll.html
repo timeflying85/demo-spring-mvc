@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HL</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <h1> Liste des Hotels</h1>
+
+    <div th:each="hotel : ${hotels}" th:object="${hotel}">
+        <p> ID = <span th:text="*{ID}"></span>
+        <p> Nom de l'hotel : <span th:text="*{nom}"></span></p>
+        <p> Nombre d'étoiles : <span th:text="*{nbrEtoiles}" th:class="*{nbrEtoiles}>2 ? 'doree'"></span></p>
+        <a th:href="@{/hotel/{id}(id=*{ID})}">
+            <button class="btn-primary btn">Détails</button>
+        </a>
+    </div>
+
+</body>
+</html>

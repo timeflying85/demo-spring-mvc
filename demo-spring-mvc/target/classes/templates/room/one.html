@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <h1>Détails de la chambre</h1>
+
+    <div th:object="(${room})">
+        <p> numéro de la chambre : <span th:text="*{numRoom}">1</span></p>
+        <p th:if="(*{nbrSimpleBed})>1"> nombre de lit(s) Simple : <span th:text="*{nbrSimpleBed}">1></span></p>
+        <p th:if="(*{nbrDoubleBed})>1"> nombre de lit(s) Double : <span th:text="*{nbrDoubleBed}">1></span></p>
+        <p>superficie : <span th:text="*{size}" th:class="*{size}>40 ? 'red'">20</span> m2</p>
+    </div>
+
+    <script src = "/js/script.js"></script>
+
+    //ou
+
+    <ul>
+        <li th:text="'la chambre ['+${room.numRoom}+'] est composée de '+${room.nbrSimpleBed}+' lit(s) Simple et de '+${room.nbrDoubleBed}+' lit(s) doubles et est de la taille de : '+${room.size}+' m2 '">Détail chambre</li>
+    </ul>
+
+    <a href="/hotel/all">
+        <button class="btn btn-primary">retour à la liste</button>
+    </a>
+
+
+
+
+</body>
+</html>
